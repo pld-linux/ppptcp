@@ -1,0 +1,28 @@
+diff -Naur ppptcp-0.6.orig/Makefile ppptcp-0.6.x/Makefile
+--- ppptcp-0.6.orig/Makefile	Wed Nov 12 19:59:03 1997
++++ ppptcp-0.6.x/Makefile	Sat Nov 17 20:33:04 2001
+@@ -1,6 +1,6 @@
+ 
+ # Authorization can be either "none" or "crypt"
+-AUTH	= none
++AUTH	= crypt
+ PPPD	= /usr/sbin/pppd
+ OPTIM	= -O2
+ CFLAGS	= $(OPTIM) -DSBIN_PPPD=\"$(PPPD)\"
+diff -Naur ppptcp-0.6.orig/auth.crypt/Makefile ppptcp-0.6.x/auth.crypt/Makefile
+--- ppptcp-0.6.orig/auth.crypt/Makefile	Thu Aug 14 00:13:12 1997
++++ ppptcp-0.6.x/auth.crypt/Makefile	Sat Nov 17 20:36:15 2001
+@@ -1,9 +1,9 @@
+ 
+ # Set these to the location of the RSA and DES libraries
+-RSAREF	= ../../rsaref/install/rsaref.a
+-RSAINC	= ../../rsaref/source
+-DES	= ../../des/libdes.a
+-DESINC	= ../../des
++RSAREF	= ../rsaref2/install/unix/rsaref.a
++RSAINC	= ../rsaref2/source
++DES	= ../des/libdes.a
++DESINC	= ../des
+ 
+ # The local objects, targets, etc.
+ OBJ	= auth.o
