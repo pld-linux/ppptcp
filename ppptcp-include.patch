@@ -1,0 +1,11 @@
+diff -Naur ppptcp-0.6.orig/ppptcp.c ppptcp-0.6/ppptcp.c
+--- ppptcp-0.6.orig/ppptcp.c	Wed Nov 12 19:37:27 1997
++++ ppptcp-0.6/ppptcp.c	Sat Nov 17 17:38:39 2001
+@@ -34,6 +34,7 @@
+ #include <sys/socket.h>
+ #include <netdb.h>
+ #include <netinet/in.h>
++#include <netinet/tcp.h>
+ 
+ #ifdef __sun__
+ #ifndef __svr4__
