@@ -11,8 +11,8 @@ Source0:	http://www.devolution.com/~slouken/projects/ppptcp/%{name}-%{version}.t
 URL:		http://www.devolution.com/~slouken/projects/ppptcp/
 Patch0:		%{name}-include.patch
 Patch1:		%{name}-makefiles.patch
-Requires:	rsaref2
-Requires:	libdes-l
+BuildRequires:	rsaref2-devel
+BuildRequires:	libdes-l-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
