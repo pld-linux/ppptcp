@@ -2,7 +2,7 @@ Summary:	IP tunnels over an arbitrary TCP connection (using pppd)
 Summary(pl):	Tunele IP po dowolnym po³±czeniu TCP (przy u¿yciu pppd)
 Name:		ppptcp
 Version:	0.6
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Networking
 Group(de):	Applikationen/Netzwerkwesen
