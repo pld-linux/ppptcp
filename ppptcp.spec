@@ -46,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.gz CHANGES.gz INSTALL.gz README.keyring.gz auth.crypt/README.crypt.gz
+%doc *.gz auth.crypt/*.gz
 %attr(755,root,root) %{_sbindir}/ppptcp
 %attr(755,root,root) %{_sbindir}/ppptcp.sh
 %attr(755,root,root) %{_sbindir}/ppptcp-keygen
