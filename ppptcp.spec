@@ -37,14 +37,12 @@ install ppptcp $RPM_BUILD_ROOT%{_sbindir}/ppptcp
 install ppptcp.sh $RPM_BUILD_ROOT%{_sbindir}/ppptcp.sh
 install auth.crypt/genkeys $RPM_BUILD_ROOT%{_sbindir}/ppptcp-keygen
 
-gzip -9nf README CHANGES INSTALL README.keyring auth.crypt/README.crypt
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz auth.crypt/*.gz
+%doc README CHANGES INSTALL README.keyring auth.crypt/README.crypt
 %attr(755,root,root) %{_sbindir}/ppptcp
 %attr(755,root,root) %{_sbindir}/ppptcp.sh
 %attr(755,root,root) %{_sbindir}/ppptcp-keygen
