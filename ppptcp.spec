@@ -6,6 +6,7 @@ Release:	4
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.devolution.com/~slouken/projects/ppptcp/%{name}-%{version}.tar.gz
+# Source0-md5:	d35df4ba1b9b5cdbe222eb0d6d961915
 URL:		http://www.devolution.com/~slouken/projects/ppptcp/
 Patch0:		%{name}-include.patch
 Patch1:		%{name}-makefiles.patch
