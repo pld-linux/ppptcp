@@ -1,17 +1,17 @@
 Summary:	IP tunnels over an arbitrary TCP connection [using pppd]
 Name:		ppptcp
 Version:	0.6
-Release:	2
-License:	distributable
+Release:	3
+License:	GPL
 Group:		Applications/Networking
 Group(de):	Applikationen/Netzwerkwesen
 Group(pl):	Aplikacje/Sieciowe
 URL:		http://www.devolution.com/~slouken/projects/ppptcp/
 Source0:	http://www.devolution.com/~slouken/projects/ppptcp/%{name}-%{version}.tar.gz
-Source1:	rsaref2.tar.gz
-Source2:	libdes-l-4.04b.tar.gz
 Patch0:		%{name}-include.patch
 Patch1:		%{name}-makefiles.patch
+Requires:	rsaref2
+Requires:	libdes-l
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -20,13 +20,10 @@ over an arbitrary TCP port.
 
 %prep
 %setup -q -n %{name}-%{version} 
-%setup -q -a1 -a2
 %patch0 -p1
 %patch1 -p1 
 
 %build
-%{__make} -C des
-%{__make} -C rsaref2/install/unix
 %{__make}
 
 %install
