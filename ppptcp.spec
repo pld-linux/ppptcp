@@ -5,8 +5,6 @@ Version:	0.6
 Release:	4
 License:	GPL
 Group:		Applications/Networking
-Group(de):	Applikationen/Netzwerkwesen
-Group(pl):	Aplikacje/Sieciowe
 Source0:	http://www.devolution.com/~slouken/projects/ppptcp/%{name}-%{version}.tar.gz
 URL:		http://www.devolution.com/~slouken/projects/ppptcp/
 Patch0:		%{name}-include.patch
