@@ -1,6 +1,6 @@
-diff -Naur ppptcp-0.6.orig/Makefile ppptcp-0.6.x/Makefile
---- ppptcp-0.6.orig/Makefile	Wed Nov 12 19:59:03 1997
-+++ ppptcp-0.6.x/Makefile	Sat Nov 17 20:33:04 2001
+diff -Naur ppptcp-0.6/Makefile ppptcp-0.6.work/Makefile
+--- ppptcp-0.6/Makefile	Wed Nov 12 19:59:03 1997
++++ ppptcp-0.6.work/Makefile	Sat Nov 17 23:30:55 2001
 @@ -1,6 +1,6 @@
  
  # Authorization can be either "none" or "crypt"
@@ -9,20 +9,51 @@ diff -Naur ppptcp-0.6.orig/Makefile ppptcp-0.6.x/Makefile
  PPPD	= /usr/sbin/pppd
  OPTIM	= -O2
  CFLAGS	= $(OPTIM) -DSBIN_PPPD=\"$(PPPD)\"
-diff -Naur ppptcp-0.6.orig/auth.crypt/Makefile ppptcp-0.6.x/auth.crypt/Makefile
---- ppptcp-0.6.orig/auth.crypt/Makefile	Thu Aug 14 00:13:12 1997
-+++ ppptcp-0.6.x/auth.crypt/Makefile	Sat Nov 17 20:36:15 2001
-@@ -1,9 +1,9 @@
+@@ -8,7 +8,7 @@
+ OBJS	= ppptcp.o packet.o keyring.o wildcard.o auth.$(AUTH)/auth.o
+ 
+ ppptcp: $(OBJS)
+-	$(CC) -o $@ $(OBJS)
++	$(CC) -o $@ $(OBJS) -lrsaref2 -ldes
+ 
+ auth.$(AUTH)/auth.o: 
+ 	cd auth.$(AUTH) && make CC="$(CC)" AFLAGS="$(AFLAGS)"
+diff -Naur ppptcp-0.6/auth.crypt/Makefile ppptcp-0.6.work/auth.crypt/Makefile
+--- ppptcp-0.6/auth.crypt/Makefile	Thu Aug 14 00:13:12 1997
++++ ppptcp-0.6.work/auth.crypt/Makefile	Sat Nov 17 23:30:21 2001
+@@ -1,28 +1,25 @@
  
  # Set these to the location of the RSA and DES libraries
 -RSAREF	= ../../rsaref/install/rsaref.a
 -RSAINC	= ../../rsaref/source
 -DES	= ../../des/libdes.a
 -DESINC	= ../../des
-+RSAREF	= ../rsaref2/install/unix/rsaref.a
-+RSAINC	= ../rsaref2/source
-+DES	= ../des/libdes.a
-+DESINC	= ../des
++RSAINC	= /usr/include/rsaref2
  
  # The local objects, targets, etc.
  OBJ	= auth.o
+ OBJS	= authcrypt.o fastrand.o rsacrypt.o
+-LIBRSA	= librsa.a
+-LIBDES	= libdes.a
+-CFLAGS	= $(AFLAGS) -I.. -I$(RSAINC) -I$(DESINC)
++LIBRSA	= -lrsaref2
++LIBDES	= -ldes
++CFLAGS	= $(AFLAGS) -I.. -I$(RSAINC) 
+ 
+ all: genkeys $(OBJ)
+ 
+ genkeys: genkeys.o rsacrypt.o ../packet.o $(LIBRSA)
+-	$(CC) -o $@ genkeys.o rsacrypt.o ../packet.o -L. -lrsa
++	$(CC) -o $@ genkeys.o rsacrypt.o ../packet.o -L. -lrsaref2
+ 
+ $(OBJ): $(OBJS) $(LIBRSA) $(LIBDES)
+-	ld -r -o $@ $(OBJS) -L. -lrsa -ldes
++	ld -r -o $@ $(OBJS) -L.
+ 
+ authcrypt.o: libdes.h
+ 
+-libdes.h: $(DESINC)/des.h
++libdes.h: /usr/include/des.h
+ 	ln -s $< $@
+ 
+ $(LIBRSA): $(RSAREF)
