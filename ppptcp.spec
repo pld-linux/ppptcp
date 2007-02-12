@@ -1,5 +1,5 @@
 Summary:	IP tunnels over an arbitrary TCP connection (using pppd)
-Summary(pl):	Tunele IP po dowolnym po³±czeniu TCP (przy u¿yciu pppd)
+Summary(pl.UTF-8):   Tunele IP po dowolnym poÅ‚Ä…czeniu TCP (przy uÅ¼yciu pppd)
 Name:		ppptcp
 Version:	0.6
 Release:	4
@@ -18,8 +18,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This is a peer-to-peer IP tunnel program that runs a PPP connection
 over an arbitrary TCP port.
 
-%description -l pl
-To jest program do tuneli IP peer-to-peer uruchamiaj±cy po³±czenie PPP
+%description -l pl.UTF-8
+To jest program do tuneli IP peer-to-peer uruchamiajÄ…cy poÅ‚Ä…czenie PPP
 po dowolnym porcie TCP.
 
 %prep
