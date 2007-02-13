@@ -1,5 +1,5 @@
 Summary:	IP tunnels over an arbitrary TCP connection (using pppd)
-Summary(pl.UTF-8):   Tunele IP po dowolnym połączeniu TCP (przy użyciu pppd)
+Summary(pl.UTF-8):	Tunele IP po dowolnym połączeniu TCP (przy użyciu pppd)
 Name:		ppptcp
 Version:	0.6
 Release:	4
